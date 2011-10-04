@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004094456) do
+ActiveRecord::Schema.define(:version => 20111004115825) do
+
+  create_table "shelves", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shelves", ["user_id"], :name => "index_shelves_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

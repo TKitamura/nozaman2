@@ -1,9 +1,10 @@
 Nozaman::Application.routes.draw do
   get "sessions/new"
 
-  resources :users
+  resources :users, :has_many => [:shelves]
   resources :sessions, :only=>[:new,:create,:destroy]
- 
+  resources :shelves, :only =>[:create,:destroy]
+
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to=> 'sessions#destroy'

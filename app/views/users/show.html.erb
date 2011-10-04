@@ -2,3 +2,18 @@
  <%= @user.name %>
 </h1>
  <p><%= @user.email %></p>
+
+<% unless @user.shelves.empty? %>
+
+<ul class="shelves">
+
+</ul>
+
+<% end %>
+
+<p>Shelves <%= @user.shelves.count %></p>
+<ul class="shelves">
+<% @shelves.each do |shelf| %>
+  <li><%= link_to shelf.name, shelf %></li>
+<% end %>
+</ul>
